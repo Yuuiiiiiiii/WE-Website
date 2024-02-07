@@ -1,1 +1,0 @@
-This is part of the git exercise. Make sure to add this repository as a remote!
