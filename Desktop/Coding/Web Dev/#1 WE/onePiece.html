@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>哟哟，小猫！你很火热呀！</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            background: url("assets/background.png") no-repeat center center fixed;
+            background-size: cover;
+            height: 70vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: rgb(0, 0, 0);
+            overflow: hidden;
+        }
+
+        .message {
+            font-size: 70px;
+            font-weight: bold;
+            opacity: 1;
+            transition: opacity 2s ease-in-out;
+            position: absolute;
+        }
+
+        .hidden {
+            opacity: 0;
+        }
+
+        #finalMessage {
+            font-size: 50px;
+            font-weight: bold;
+            opacity: 0;
+            transition: opacity 2s ease-in-out;
+            position: absolute;
+        }
+
+        img {
+            width: 300px;
+            margin-top: 20px;
+            display: none;
+        }
+
+        #easterEgg {
+            width: 70px;
+            height: 70px;
+            position: absolute;
+            bottom: 250px; /* Adjusted position */
+            left: 50%;
+            transform: translateX(-50%);
+            cursor: pointer;
+            transition: transform 0.2s ease-in-out;
+            animation: glow 1.5s infinite alternate; /* Glowing effect */
+            display: none; /* Hidden initially */
+        }
+
+        /* 🔥 Glowing effect */
+        @keyframes glow {
+            0% {
+                filter: drop-shadow(0 0 5px rgba(255, 255, 0, 0.5));
+                transform: scale(1);
+            }
+            100% {
+                filter: drop-shadow(0 0 15px rgba(255, 255, 0, 1));
+                transform: scale(1.1);
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <h1 id="message1" class="message">呀，猫酱怎么钻到我心里来了呀！</h1>
+    <h1 id="message2" class="message hidden">噗，好油！</h1>
+    <h1 id="message3" class="message hidden">呜呜呜我越做到后面越觉得这个网站丑丑！</h1>
+    <h1 id="message4" class="message hidden">私密马赛！！！！！</h1>
+    <h1 id="message5" class="message hidden">我是笨小狗！</h1>
+    <h1 id="message6" class="message hidden">但是是特别特别爱你的笨小狗哟！</h1>
+
+    <h1 id="finalMessage" class="message hidden">猫酱情人节快乐！我想和你一直一直在一起！！！！！</h1>
+    
+    <img id="onePieceImage" src="assets/background.png">
+
+    <!-- ✨ 彩蛋 (Glowing Secret Button) -->
+    <img id="easterEgg" src="assets/easter_egg.png" onclick="openEasterEggPage()">
+
+    <audio id="bgm" autoplay loop>
+        <source src="assets/All_of_Me.mp3" type="audio/mpeg">
+    </audio>
+
+    <script>
+        function showMessage(current, next, delay) {
+            setTimeout(() => {
+                document.getElementById(current).classList.add("hidden");
+            }, delay);
+            
+            setTimeout(() => {
+                document.getElementById(current).style.display = "none";
+                document.getElementById(next).classList.remove("hidden");
+            }, delay + 1000);
+        }
+
+        // 🔹 Message sequence timing
+        showMessage("message1", "message2", 5000);
+        showMessage("message2", "message3", 10000);
+        showMessage("message3", "message4", 15000);
+        showMessage("message4", "message5", 20000);
+        showMessage("message5", "message6", 25000);
+
+        // 🔹 Final message appears AFTER message6 disappears
+        setTimeout(() => {
+            document.getElementById("message6").classList.add("hidden");
+        }, 30000);
+
+        setTimeout(() => {
+            document.getElementById("message6").style.display = "none";
+            document.getElementById("finalMessage").classList.remove("hidden");
+            document.getElementById("finalMessage").style.opacity = "1"; // Smooth fade-in
+        }, 32000); // 💡 Fixed delay to show AFTER message6 disappears
+
+        // 🔹 Easter Egg appears AFTER final message
+        setTimeout(() => {
+            document.getElementById("easterEgg").style.display = "block";
+        }, 34000); // 💡 Ensures it appears AFTER final message
+
+        // 🎮 Return to maze on "Enter"
+        document.addEventListener("keydown", function(event) {
+            if (event.key === "Enter") {
+                window.location.href = "index.html"; // Return to game
+            }
+        });
+
+        // 🥚彩蛋跳转
+        function openEasterEggPage() {
+            window.location.href = "surprise.html";
+        }
+    </script>
+
+</body>
+</html>
