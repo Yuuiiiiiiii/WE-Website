@@ -1,0 +1,101 @@
+<!DOCTYPE html> 
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>快问快答！</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: rgb(0, 0, 0);
+            background-color: pink; /* ✅ Set background to pink */
+            overflow: hidden;
+        }
+
+        .message {
+            font-size: 70px;
+            font-weight: bold;
+            opacity: 1;
+            transition: opacity 2s ease-in-out;
+            position: absolute;
+        }
+
+        .hidden {
+            opacity: 0;
+        }
+
+        /* ✅ Hide video until final transition */
+        #video-container {
+            display: none;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="message1" class="message">快问快答！</h1>
+    <h1 id="message2" class="message hidden">今天是我们在一起的多少天呀？</h1>
+    <h1 id="message3" class="message hidden">不许看倒数日~</h1>
+    <h1 id="message4" class="message hidden">是第1242天哟！</h1>
+
+    <!-- 🎵 Background Music -->
+    <audio id="bgm" loop>
+        <source src="assets/we.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+    
+    <!-- 🎥 Video Container (Hidden initially) -->
+    <div id="video-container">
+        <video id="tiramisu-video" width="400" controls autoplay muted>
+            <source src="assets/tiramisu.mov" type="video/mp4">
+            Your browser does not support the video element.
+        </video>
+    </div>
+
+    <script>
+        window.onload = function () {
+            let bgm = document.getElementById("bgm");
+            bgm.volume = 0.5; // Adjust volume if needed
+            bgm.play().catch(error => console.log("Autoplay blocked:", error));
+        };
+
+        function showMessage(current, next, delay) {
+            setTimeout(() => {
+                document.getElementById(current).classList.add("hidden");
+            }, delay);
+            
+            setTimeout(() => {
+                document.getElementById(current).style.display = "none";
+                document.getElementById(next).classList.remove("hidden");
+            }, delay + 2000);
+        }
+
+        // Show messages in sequence
+        showMessage("message1", "message2", 3000);
+        showMessage("message2", "message3", 7000);
+        showMessage("message3", "message4", 11000);
+
+        // 🎥 Show video after messages and play it
+        setTimeout(() => {
+            document.getElementById("message4").classList.add("hidden");
+            setTimeout(() => {
+                document.getElementById("message4").style.display = "none";
+                document.getElementById("video-container").style.display = "block";
+                
+                let video = document.getElementById("tiramisu-video");
+                video.play(); // ✅ Force play after messages
+                video.muted = false; // ✅ Unmute when shown
+            }, 2000);
+        }, 15000);
+    </script>
+</body>
+</html>
