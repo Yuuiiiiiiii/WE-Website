@@ -14,11 +14,11 @@
 
 // function preload() {
 //     heartShape = loadStrings('heart.txt');
-//     avatarGif = createImg("assets/avatar.GIF", "");
+//     avatarGif = createImg("WE/assets/avatar.GIF", "");
 //     avatarGif.style("display", "none");
-//     onePieceImg = loadImage("assets/dog_processed.png");
-//     puddingImg = loadImage("assets/pudding.png");
-//     tiramisuImg = loadImage("assets/tiramisu.jpg");
+//     onePieceImg = loadImage("WE/assets/dog_processed.png");
+//     puddingImg = loadImage("WE/assets/pudding.png");
+//     tiramisuImg = loadImage("WE/assets/tiramisu.jpg");
 // }
 
 // function setup() {
@@ -409,14 +409,14 @@
 // const gridMap = {};
 // var canvas;
 
-// // Load assets properly
+// // Load WE/assets properly
 // function preload() {
 //     heartShape = loadStrings('heart.txt')
-//     avatarGif = createImg("assets/avatar.GIF", "");
+//     avatarGif = createImg("WE/assets/avatar.GIF", "");
 //     avatarGif.style("display", "none");
-//     onePieceImg = loadImage("assets/dog_processed.png");
-//     puddingImg = loadImage("assets/pudding.png");
-//     tiramisuImg = loadImage("assets/tiramisu.jpg");
+//     onePieceImg = loadImage("WE/assets/dog_processed.png");
+//     puddingImg = loadImage("WE/assets/pudding.png");
+//     tiramisuImg = loadImage("WE/assets/tiramisu.jpg");
 // }
 
 // function setup() {
@@ -775,14 +775,14 @@ const gridMap = {};
 var canvas;
 var keyCount = 0; // Track how many keys (Pudding + Tiramisu) have been collected
 
-// Load assets properly
+// Load WE/assets properly
 function preload() {
     heartShape = loadStrings('heart.txt');
-    avatarGif = createImg("assets/avatar.GIF", "");
+    avatarGif = createImg("WE/assets/avatar.GIF", "");
     avatarGif.style("display", "none");
-    onePieceImg = loadImage("assets/dog_processed.png");
-    puddingImg = loadImage("assets/pudding.png");
-    tiramisuImg = loadImage("assets/tiramisu.jpg");
+    onePieceImg = loadImage("WE/assets/dog_processed.png");
+    puddingImg = loadImage("WE/assets/pudding.png");
+    tiramisuImg = loadImage("WE/assets/tiramisu.jpg");
 }
 
 function setup() {
