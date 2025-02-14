@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我爱你！</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            background-color: pink; /* Keep a soft pink background */
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            overflow: hidden;
+        }
+
+        /* 🌸 Centered and resized background image */
+        .background-img {
+            width: 60%;  /* Adjust size */
+            max-width: 277px;  /* Prevent it from being too large */
+            border-radius: 15px;  /* Optional: Soft rounded corners */
+            box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.2);  /* Soft shadow for effect */
+        }
+
+        h1 {
+            font-size: 50px;
+            font-weight: bold;
+            color: rgb(255, 255, 255); /* Make it stand out */
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
+            margin-top: 20px;
+            opacity: 0;
+            animation: fadeIn 3s ease-in-out forwards;
+        }
+
+        /* Soft fade-in animation */
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+
+    <img class="background-img" src="assets/WE.jpg" alt="我们在一起的照片">
+    <h1>我爱你！！！！！！</h1>
+
+    <audio id="voiceMessage" autoplay>
+        <source src="assets/my_voice.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+</body>
+</html>
